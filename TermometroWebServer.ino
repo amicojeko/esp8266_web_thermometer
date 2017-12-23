@@ -33,7 +33,6 @@
 #define DHTTYPE  DHT22
 #define LCD_TEMP 0
 #define LCD_HUM  1
-#define LCD_HUM  1
 #define DATAPIN  D2
 #define CLKPIN   D4
 #define LOADPIN  D3
