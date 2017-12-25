@@ -1,0 +1,35 @@
+{
+    "bridge": {
+        "name": "Jeko Magic Haus",
+        "username": "CC:21:3D:E3:CE:31",
+        "port": 51826,
+        "pin": "031-45-154",
+        "manufacturer": "@jeko",
+        "model": "Homebridge",
+        "serialNumber": "0.4.20"
+    },
+
+    "description": "Basic configuration file with a temperature sensor and .",
+
+    "accessories": [
+     	{
+     		"accessory": "HttpAccessory",
+     		"service": "TemperatureSensor",
+     		"name": "Temperature",
+     		"apiBaseUrl": "http://<esp 8266 ip here>",
+     		"apiSuffixUrl": "",
+     		"forceRefreshDelay": 0,
+     		"optionCharacteristic": []
+     	},
+     	{
+     		"accessory": "HttpAccessory",
+     		"service": "HumiditySensor",
+     		"name": "Humidity",
+     		"apiBaseUrl": "http://<esp 8266 ip here>",
+     		"apiSuffixUrl": "",
+     		"forceRefreshDelay": 0,
+     		"optionCharacteristic": []
+     	}
+    ],
+    "platforms": []
+}

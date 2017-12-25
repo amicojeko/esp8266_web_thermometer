@@ -56,7 +56,7 @@ void handleRoot() {
   </body>\
 </html>",
 
-    dtostrf(dht.readTemperature(), 4, 1, temp_buff), 
+    dtostrf(dht.readTemperature(), 4, 1, temp_buff),
     dtostrf(dht.readHumidity(), 4, 1, hum_buff)
   );
   server.send ( 200, "text/html", tmp );
@@ -78,6 +78,33 @@ void handleNotFound() {
     message += " " + server.argName ( i ) + ": " + server.arg ( i ) + "\n";
   }
 
+  Serial.print("Not Found: ");
+  Serial.print(server.uri());
+
   server.send ( 404, "text/plain", message );
+  digitalWrite ( LEDPIN, 0 );
+}
+
+void handleGetCurrentRelativeHumidity() {
+  digitalWrite ( LEDPIN, 1 );
+  char tmp[50];
+  char hum_buff[10];
+  snprintf ( tmp, 50,
+    "{\"value\":%2s}",
+    dtostrf(dht.readHumidity(), 4, 1, hum_buff)
+  );
+  server.send ( 200, "application/json", tmp );
+  digitalWrite ( LEDPIN, 0 );
+}
+
+void handleGetCurrentTemperature() {
+  digitalWrite ( LEDPIN, 1 );
+  char tmp[50];
+  char hum_buff[10];
+  snprintf ( tmp, 50,
+    "{\"value\":%2s}",
+    dtostrf(dht.readTemperature(), 4, 1, hum_buff)
+  );
+  server.send ( 200, "application/json", tmp );
   digitalWrite ( LEDPIN, 0 );
 }
