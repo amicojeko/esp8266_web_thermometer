@@ -1,5 +1,6 @@
 # To install on a RaspberryPi
 
+```
 cd ~
 
 git clone git@github.com:amicojeko/esp8266_web_thermometer.git
@@ -14,10 +15,15 @@ source /home/pi/.rvm/scripts/rvm
 
 gem install bundler
 
-
-
 cd homebridge_debugger
 
+bundle
+```
 
+add
 
-bundler
+```
+su pi -c /home/pi/esp8266_web_thermometer/homebridge_debugger/start.sh &$
+```
+
+to `/etc/rc.local`
