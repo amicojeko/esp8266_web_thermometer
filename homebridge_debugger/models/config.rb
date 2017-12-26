@@ -1,8 +1,8 @@
 #models.rb
 class Config < ActiveRecord::Base
   class << self
-    def switch(id)
-      find_or_create_by(key: "switch_#{id}")
+    def power_state
+      find_or_create_by(key: 'power_state')
     end
   end
 end
